@@ -314,7 +314,7 @@ function setInput(input) {
 
     setAlgorithmNameType(input, selectedAlgorithm.value);
     input.contextSwitch = Number(document.querySelector("#context-switch").value) || 0;
-    input.timeQuantum = Number(document.querySelector("#tq").value) || 2;
+    input.timeQuantum = Number(document.querySelector("#tq").value) || 0;
 }
 
 function setUtility(input, utility) {
