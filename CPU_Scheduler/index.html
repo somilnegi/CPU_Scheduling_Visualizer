@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPU Scheduler</title>
+    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <nav>
+      <div class="navContainer">
+        <div class="logoConatiner">
+          <h4 class="navHead">Algo Lab</h4>
+          <div class="navImg">
+            <img src="./images/icon.png" alt="logo" class="navImage" />
+          </div>
+        </div>
+        <div class="theme-toggle-container">
+          <input type="checkbox" class="checkbox" id="checkbox" />
+          <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+          </label>
+        </div>
+        <ul class="navTag">
+          <li id="tag">
+            <a href="index.html"><span id="tag">Home</span></a>
+          </li>
+          <span class="line">|</span>
+          <li id="tag">
+            <a href="doc.html"><span id="tag">Docs</span></a>
+          </li>
+          <!-- <li id="tag"><a href="about.html"><span id="tag">About</span></a></li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <section class="process">
+      <h3 class="processHeading">CPU Scheduling Visualizer</h3>
+      <form class="processForm">
+        <div class="inputField">
+          <label class="formTitle">Select Algorithm:</label>
+          <select id="algo">
+            <option value="none">Please Select the Algorithm</option>
+            <option value="fcfs">First Come First Serve (FCFS)</option>
+            <option value="sjf">Shortest Job First (SJF)</option>
+            <option value="srtf">Shortest Remaining Time First (SRTF)</option>
+            <option value="rr">Round Robin (RR)</option>
+            <option value="pp">Priority (Preemptive)</option>
+            <option value="pnp">Priority (Non Preemptive)</option>
+          </select>
+        </div>
+        <div class="inputField">
+          <label class="formTitle">Context Switch Time:</label>
+          <input type="number" id="context-switch" value="0" min="0" />
+        </div>
+        <div id="time-quantum" class="hide inputField">
+          <label class="formTitle">Time Quantum:</label>
+          <input type="number" id="tq" value="2" min="1" /><br /><br />
+        </div>
+
+        <div id="priority-toggle" class="inputField">
+          Priority Preference: 1 =
+          <button value="high" type="button" id="priority-toggle-btn">
+            High
+          </button>
+        </div>
+        <table class="main-table">
+          <thead>
+            <tr>
+              <th>Process</th>
+              <th class="priority-hide">Priority</th>
+              <th>Arrival Time</th>
+              <th class="process-time">Burst Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="process-id" rowspan="2">P1</td>
+              <td class="priority-hide" rowspan="2">
+                <input type="number" value="0" min="0" id="pr1" class="box" />
+              </td>
+              <td class="arrival-time" rowspan="2">
+                <input type="number" value="0" min="0" id="ar1" class="box" />
+              </td>
+              <td class="process-time cpu process-input">CPU</td>
+              <td class="process-btn" rowspan="2">
+                <div class="btn-container">
+                  <button type="button" class="add-btn">+</button>
+                  <button type="button" class="remove-btn">−</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="process-time cpu process-input">
+                <input type="number" value="0" min="0" id="bs1_1" class="box" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="buttons">
+          <button type="button" class="add-process-btn">Add Process</button>
+          <button type="button" class="remove-process-btn">
+            Remove Process
+          </button>
+          <button type="button" id="calculate" class="calculate-btn">
+            Calculate
+          </button>
+        </div>
+        <div id="compare-section" style="display: none">
+          <label class="formTitle">Compare With:</label>
+          <select id="compare-algo">
+            <option value="none">None</option>
+            <option value="fcfs">First Come First Serve (FCFS)</option>
+            <option value="sjf">Shortest Job First (SJF)</option>
+            <option value="srtf">Shortest Remaining Time First (SRTF)</option>
+            <option value="rr">Round Robin (RR)</option>
+            <option value="pp">Priority (Preemptive)</option>
+            <option value="pnp">Priority (Non Preemptive)</option></select
+          ><br /><br />
+          <button type="button" id="compare" class="button">Compare</button>
+        </div>
+      </form>
+    </section>
+    <div id="output" class="result"></div>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'93e68d1eaae08bb6',t:'MTc0NzAxNzYyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

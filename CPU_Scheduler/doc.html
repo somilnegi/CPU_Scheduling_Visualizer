@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nav.css"/>
+    <link rel="stylesheet" href="doc.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav>
+    <div class="navContainer">
+      <div class="logoConatiner">
+        <h4 class="navHead">Project Documents</h4>
+        <div class="navImg">
+            <img src="./images/doc.png" alt="logo" class="navImage">
+        </div>
+      </div>
+      <div class="theme-toggle-container">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
+      <ul class="navTag">
+        <li id="tag"><a href="index.html"><span id="tag">Home</span></a></li>
+        <li id="tag"><a href="doc.html"><span id="tag">Docs</span></a></li>
+        <!-- <li id="tag"><a href="about.html"><span id="tag">About</span></a></li> -->
+      </ul>
+    </div>
+  </nav>
+    <section class="mainContainer">
+        <div class="leftSide">
+            <h2 class="leftHeading">What is CPU scheduling algorithm ?</h2>
+            <p class="leftPara">A CPU scheduling algorithm is a method used by the operating system to determine which 
+                process gets to use the CPU (processor) and for how long. When multiple processes are ready to run, 
+                the scheduler decides the order based on a particular algorithm.
+            </p>
+            <p class="leftPara">Because a CPU can run only one process at a time (in a single-core system), while multiple processes may be ready to execute. 
+                Efficient scheduling improves:</p>
+            <ul class="list">
+                <li>CPU utilization</li>
+                <li>Throughput</li>
+                <li>Response time</li>          
+                <li>Fairness</li>
+            </ul>
+            <a href="https://www.tpointtech.com/cpu-scheduling-algorithms-in-operating-systems" class="button">Learn More</a>
+        </div>
+        <div class="rightSide">
+            <img src="./images/back2.jpg" alt="" class="imgRight" loading="lazy">
+        </div>
+    </section>
+    <section class="featureCard">
+        <div class="gridCard">
+            <div class="cards">
+                <div class="cardImg">
+                    <img src="./images/sh1.png" alt="" loading="lazy" class="cardImage">
+                </div>
+                <h1>First-Come, First-Served (FCFS)</h1>
+                <p>Processes are executed in the order they arrive in the ready queue. 
+                    It's non-preemptive and simple but may cause high average waiting time.</p>
+                <a href="https://www.tutorialspoint.com/fcfs-scheduling" class="button">Know More</a>
+            </div>
+            <div class="cards">
+                <div class="cardImg">
+                    <img src="./images/sh2.png" alt="" loading="lazy" class="cardImage">
+                </div>
+                <h1>Shortest Job First (SJF) / Shortest Job Next (SJN)</h1>
+                <p>Executes the process with the shortest burst time first. It can be preemptive (Shortest Remaining Time First) or non-preemptive. 
+                    Minimizes average waiting time but may lead to starvation.</p>
+                <a href="https://www.tutorialspoint.com/operating_system/os_shortest_job_first_scheduling.htm" class="button">Know More</a>
+            </div>
+            <div class="cards">
+                <div class="cardImg">
+                    <img src="./images/sh3.png" alt="" loading="lazy" class="cardImage">
+                </div>
+                <h1>Round Robin (RR)</h1>
+                <p>Round Robin is a preemptive CPU scheduling algorithm where each process is assigned a fixed time quantum and scheduled in a cyclic order. 
+                    The CPU executes each process for a maximum of one time slice; if the process doesn’t finish in that time, it is paused and placed at the 
+                    end of the queue. This continues until all processes are completed.</p>
+                <a href="https://www.tutorialspoint.com/operating_system/os_round_robin_scheduling_algorithm.htm" class="button">Know More</a>
+            </div>
+            <div class="cards">
+                <div class="cardImg">
+                    <img src="./images/sh4.png" alt="" loading="lazy" class="cardImage">
+                </div>
+                <h1>Longest Job First (LJF)</h1>
+                <p>Opposite of SJF - the process with the longest burst time is executed first. 
+                    Can be preemptive or non-preemptive but may lead to increased waiting time for shorter tasks.</p>
+                <a href="https://www.tutorialspoint.com/longest-job-first-ljf-cpu-scheduling-algorithm" class="button">Know More</a>
+            </div>
+            <div class="cards">
+                <div class="cardImg">
+                    <img src="./images/sh5.png" alt="" loading="lazy" class="cardImage">
+                </div>
+                <h1>Priority Scheduling</h1>
+                <p>Each process is assigned a priority, and the CPU is allocated to the process with the highest priority. 
+                    It can be preemptive or non-preemptive. Risk of starvation exists for low-priority processes.</p>
+                <a href="https://www.tutorialspoint.com/operating_system/os_priority_scheduling_algorithm.htm" class="button">Know More</a>
+            </div>
+        </div>
+    </section>
+    <script src="theme.js"></script>
+</html>
