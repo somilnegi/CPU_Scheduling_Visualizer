@@ -203,9 +203,6 @@ function deleteProcess() {
 
 document.querySelector(".add-process-btn").onclick = () => {
     addProcess();
-    document.getElementById('output').scrollIntoView({
-      behavior: 'smooth'
-    });
     document.body.classList.add("scroll-enabled");
 };
 document.querySelector(".remove-process-btn").onclick = () => {
