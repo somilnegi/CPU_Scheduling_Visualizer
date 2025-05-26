@@ -832,7 +832,7 @@ function calculateOutput() {
 
         let compareSection = document.getElementById("compare-section");
         if (!compareSection) throw new Error("Compare section not found");
-        compareSection.style.display = "block";
+        compareSection.style.display = "flex";
         let compareAlgo = document.getElementById("compare-algo");
         if (compareAlgo) compareAlgo.value = "none";
         let compareResults = document.createElement("div");
