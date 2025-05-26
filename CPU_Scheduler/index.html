@@ -117,16 +117,18 @@
           </button>
         </div>
         <div id="compare-section" style="display: none">
-          <label class="formTitle">Compare With:</label>
-          <select id="compare-algo">
-            <option value="none">None</option>
-            <option value="fcfs">First Come First Serve (FCFS)</option>
-            <option value="sjf">Shortest Job First (SJF)</option>
-            <option value="srtf">Shortest Remaining Time First (SRTF)</option>
-            <option value="rr">Round Robin (RR)</option>
-            <option value="pp">Priority (Preemptive)</option>
-            <option value="pnp">Priority (Non Preemptive)</option></select
-          ><br /><br />
+          <div id="compare-algo-section">
+            <label class="formTitle">Compare With:</label>
+            <select id="compare-algo">
+              <option value="none">None</option>
+              <option value="fcfs">First Come First Serve (FCFS)</option>
+              <option value="sjf">Shortest Job First (SJF)</option>
+              <option value="srtf">Shortest Remaining Time First (SRTF)</option>
+              <option value="rr">Round Robin (RR)</option>
+              <option value="pp">Priority (Preemptive)</option>
+              <option value="pnp">Priority (Non Preemptive)</option>
+            </select>
+          </div>
           <button type="button" id="compare" class="button">Compare</button>
         </div>
       </form>
